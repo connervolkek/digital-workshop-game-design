@@ -5,8 +5,14 @@
 [ext_resource type="PackedScene" uid="uid://dcvugke1d08x5" path="res://Scenes/FishCollectionIcon.tscn" id="2_t6xdt"]
 [ext_resource type="Texture2D" uid="uid://wbxtgcolpwh2" path="res://Art/woodframe.png" id="4_ekmq2"]
 [ext_resource type="Texture2D" uid="uid://do6isgpkfwql7" path="res://Art/collection.png" id="4_hpy13"]
+[ext_resource type="AudioStream" uid="uid://vw1x34gcepl8" path="res://Sounds/pageturn.wav" id="6_t3wo7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t3wo7"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_t3wo7"]
+random_pitch = 1.0615458
+streams_count = 1
+stream_0/stream = ExtResource("6_t3wo7")
 
 [node name="CollectionUI" type="Control" unique_id=1401526301]
 layout_mode = 3
@@ -102,6 +108,10 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Close"
+
+[node name="PageTurn" type="AudioStreamPlayer" parent="." unique_id=806265492]
+stream = SubResource("AudioStreamRandomizer_t3wo7")
+volume_db = -7.003
 
 [connection signal="pressed" from="CollectionButton" to="." method="_on_collection_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
