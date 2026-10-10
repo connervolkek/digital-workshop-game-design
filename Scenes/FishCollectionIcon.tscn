@@ -1,9 +1,20 @@
 [gd_scene format=3 uid="uid://dcvugke1d08x5"]
 
+[ext_resource type="Texture2D" uid="uid://cjf64ps0ig6pj" path="res://Art/fishcollectionbg.png" id="1_jy36s"]
 [ext_resource type="Script" uid="uid://daq54e2gmbql8" path="res://Scripts/FishCollectionIcon.gd" id="1_vyv6v"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hpy13"]
+texture = ExtResource("1_jy36s")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
 [node name="FishCollectionIcon" type="PanelContainer" unique_id=1803964695]
 custom_minimum_size = Vector2(64, 64)
+theme_override_styles/panel = SubResource("StyleBoxTexture_hpy13")
 script = ExtResource("1_vyv6v")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2104622573]
