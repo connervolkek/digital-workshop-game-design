@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://xnwfyupperq3"]
 
 [ext_resource type="Script" uid="uid://tfdd26pdmssa" path="res://Scripts/FishingGame.gd" id="1_5hnkb"]
-[ext_resource type="Texture2D" uid="uid://ceii45rumil2p" path="res://Art/woodframe.png" id="2_5c2xi"]
+[ext_resource type="Texture2D" uid="uid://bbut17ryboqwr" path="res://Art/woodframe.png" id="2_5c2xi"]
 [ext_resource type="PackedScene" uid="uid://bp8ss3xuef02s" path="res://Scenes/Fish.tscn" id="2_fish"]
 [ext_resource type="Texture2D" uid="uid://itpsvvg00cv1" path="res://Art/TestImage.png" id="4_0hv4e"]
-[ext_resource type="Texture2D" uid="uid://dsqfxqpl4fad5" path="res://Art/fishingbg.png" id="5_0hv4e"]
+[ext_resource type="Texture2D" uid="uid://cs38h0ypkoqk1" path="res://Art/fishingbg.png" id="5_0hv4e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ew6px"]
 bg_color = Color(0.18431373, 0.6, 0.6, 1)
@@ -88,6 +88,10 @@ size_flags_vertical = 3
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ew6px")
 
+[node name="TextureRect" type="TextureRect" parent="OuterPanel/MarginContainer/VBoxContainer/FishingArea" unique_id=675604880]
+layout_mode = 2
+texture = ExtResource("5_0hv4e")
+
 [node name="FishBounds" type="Control" parent="OuterPanel/MarginContainer/VBoxContainer/FishingArea" unique_id=2122585587]
 clip_contents = true
 layout_mode = 2
@@ -104,10 +108,6 @@ fish_name = "unCOOL fish"
 clicks_required = 15
 time_limit = 6.0
 hop_interval = 0.4
-
-[node name="TextureRect" type="TextureRect" parent="OuterPanel/MarginContainer/VBoxContainer/FishingArea" unique_id=675604880]
-layout_mode = 2
-texture = ExtResource("5_0hv4e")
 
 [node name="Footer" type="HBoxContainer" parent="OuterPanel/MarginContainer/VBoxContainer" unique_id=1257403813]
 custom_minimum_size = Vector2(0, 31)
