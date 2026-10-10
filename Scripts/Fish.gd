@@ -23,6 +23,7 @@ func hop() -> void:
 	position.y = randf_range(0.0, available_space.y)
 
 func _on_pressed():
+	$CPUParticles2D.emitting = true
 	Global.fish_clicked.emit()
 
 func _on_hop_timer_timeout() -> void:

@@ -78,10 +78,12 @@ mouse_filter = 2
 
 [node name="Fish" parent="OuterPanel/MarginContainer/VBoxContainer/FishingArea/FishBounds" unique_id=1867647280 instance=ExtResource("2_fish")]
 layout_mode = 0
+fish_name = "COOL fish"
 
 [node name="Fish2" parent="OuterPanel/MarginContainer/VBoxContainer/FishingArea/FishBounds" unique_id=670125084 instance=ExtResource("2_fish")]
 layout_mode = 0
 texture_normal = ExtResource("4_0hv4e")
+fish_name = "unCOOL fish"
 clicks_required = 15
 time_limit = 6.0
 hop_interval = 0.4

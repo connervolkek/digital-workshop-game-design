@@ -3,8 +3,17 @@
 [ext_resource type="Script" uid="uid://du3fvnga2msas" path="res://Scripts/Fish.gd" id="1_fish"]
 [ext_resource type="Texture2D" uid="uid://bra05l1qe834b" path="res://Art/a fish.png" id="1_two43"]
 
+[sub_resource type="Gradient" id="Gradient_two43"]
+colors = PackedColorArray(0.5372549, 1, 1, 1, 0.5372549, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jv1ba"]
+gradient = SubResource("Gradient_two43")
+width = 2
+height = 2
+
 [node name="Fish" type="TextureButton" unique_id=1867647280]
 visible = false
+texture_filter = 1
 custom_minimum_size = Vector2(64, 48)
 offset_right = 64.0
 offset_bottom = 48.0
@@ -18,6 +27,23 @@ script = ExtResource("1_fish")
 
 [node name="HopTimer" type="Timer" parent="." unique_id=1672738188]
 wait_time = 0.65
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1546493346]
+position = Vector2(28, 23)
+emitting = false
+amount = 24
+texture = SubResource("GradientTexture2D_jv1ba")
+lifetime = 0.47000000000000003
+one_shot = true
+speed_scale = 3.5300000000000002
+explosiveness = 0.45
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 0.25
+initial_velocity_max = 53.5
+angular_velocity_min = -541.78
+angular_velocity_max = 313.66
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
 [connection signal="timeout" from="HopTimer" to="." method="_on_hop_timer_timeout"]
