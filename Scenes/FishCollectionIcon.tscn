@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dcvugke1d08x5"]
+
+[ext_resource type="Script" uid="uid://daq54e2gmbql8" path="res://Scripts/FishCollectionIcon.gd" id="1_vyv6v"]
+
+[node name="FishCollectionIcon" type="PanelContainer" unique_id=1803964695]
+custom_minimum_size = Vector2(64, 64)
+script = ExtResource("1_vyv6v")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2104622573]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=409836340]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=963902570]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=722618076]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Goldfish"
+horizontal_alignment = 1

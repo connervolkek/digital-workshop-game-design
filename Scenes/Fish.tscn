@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bp8ss3xuef02s"]
+
+[ext_resource type="Script" uid="uid://du3fvnga2msas" path="res://Scripts/Fish.gd" id="1_fish"]
+[ext_resource type="Texture2D" uid="uid://bra05l1qe834b" path="res://Art/a fish.png" id="1_two43"]
+
+[node name="Fish" type="TextureButton" unique_id=1867647280]
+visible = false
+custom_minimum_size = Vector2(64, 48)
+offset_right = 64.0
+offset_bottom = 48.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+disabled = true
+texture_normal = ExtResource("1_two43")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("1_fish")
+
+[node name="HopTimer" type="Timer" parent="." unique_id=1672738188]
+wait_time = 0.65
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="timeout" from="HopTimer" to="." method="_on_hop_timer_timeout"]

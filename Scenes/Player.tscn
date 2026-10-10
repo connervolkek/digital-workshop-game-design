@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cxgv3qmhutft4"]
+
+[ext_resource type="Script" uid="uid://pjhwd2vcl7dm" path="res://Scripts/PlayerScript.gd" id="1_kyqiw"]
+[ext_resource type="Texture2D" uid="uid://47sb71vauxav" path="res://icon.svg" id="2_gntrk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2m5a4"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gntrk")
+}],
+"loop": 1,
+"name": &"fish",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kyqiw"]
+size = Vector2(44, 44)
+
+[node name="Player" type="CharacterBody2D" unique_id=555660452]
+collision_layer = 2
+collision_mask = 5
+motion_mode = 1
+script = ExtResource("1_kyqiw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=894615221]
+texture_filter = 1
+scale = Vector2(0.3828125, 0.3828125)
+sprite_frames = SubResource("SpriteFrames_2m5a4")
+animation = &"fish"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1965714214]
+shape = SubResource("RectangleShape2D_kyqiw")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=502222376]
+
+[node name="FishingRay" type="RayCast2D" parent="." unique_id=194888320]
+target_position = Vector2(64, 0)
+collision_mask = 4
