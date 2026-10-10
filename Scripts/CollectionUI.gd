@@ -18,7 +18,10 @@ func add_icon(fish_name, texture):
 
 
 func _on_collection_button_pressed():
-	$PanelContainer.show()
+	if $PanelContainer.visible:
+		$PanelContainer.hide()
+	else:
+		$PanelContainer.show()
 	pass # Replace with function body.
 
 

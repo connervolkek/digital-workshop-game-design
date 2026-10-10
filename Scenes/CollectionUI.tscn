@@ -1,7 +1,12 @@
 [gd_scene format=3 uid="uid://bsk01gcvlod1c"]
 
 [ext_resource type="Script" uid="uid://ps8tn03aqkfl" path="res://Scripts/CollectionUI.gd" id="1_0pu1y"]
+[ext_resource type="Theme" uid="uid://mvjpfb540vfs" path="res://Art/GameTheme.tres" id="1_t6xdt"]
 [ext_resource type="PackedScene" uid="uid://dcvugke1d08x5" path="res://Scenes/FishCollectionIcon.tscn" id="2_t6xdt"]
+[ext_resource type="Texture2D" uid="uid://wbxtgcolpwh2" path="res://Art/woodframe.png" id="4_ekmq2"]
+[ext_resource type="Texture2D" uid="uid://do6isgpkfwql7" path="res://Art/collection.png" id="4_hpy13"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t3wo7"]
 
 [node name="CollectionUI" type="Control" unique_id=1401526301]
 layout_mode = 3
@@ -10,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_t6xdt")
 script = ExtResource("1_0pu1y")
 fish_collection_icon = ExtResource("2_t6xdt")
 
@@ -18,10 +24,25 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -8.0
-offset_bottom = 8.0
+offset_left = -111.0
+offset_top = 8.0
+offset_right = -11.0
+offset_bottom = 128.0
 grow_horizontal = 0
+theme_override_colors/font_color = Color(0.49019608, 0.24313726, 0.14117648, 1)
+theme_override_colors/font_focus_color = Color(0.49019608, 0.24313726, 0.14117648, 1)
+theme_override_colors/font_pressed_color = Color(0.49019608, 0.24313726, 0.14117648, 1)
+theme_override_colors/font_hover_color = Color(0.3583605, 0.16993287, 0.09201824, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.49019608, 0.24313726, 0.14117648, 1)
+theme_override_colors/icon_hover_color = Color(0.737193, 0.7371929, 0.7371929, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t3wo7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_t3wo7")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_t3wo7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_t3wo7")
 text = "Collection"
+icon = ExtResource("4_hpy13")
+icon_alignment = 1
+vertical_icon_alignment = 0
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=590749025]
 visible = false
@@ -38,6 +59,17 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="PanelContainer" unique_id=207770842]
+layout_mode = 2
+texture = ExtResource("4_ekmq2")
+region_rect = Rect2(0, 0, 72, 72)
+patch_margin_left = 9
+patch_margin_top = 9
+patch_margin_right = 9
+patch_margin_bottom = 9
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=29272571]
 layout_mode = 2

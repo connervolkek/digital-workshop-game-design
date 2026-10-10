@@ -28,6 +28,10 @@ window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 mouse_cursor/custom_image="uid://dfg2mre4rvdi5"
 
+[gui]
+
+theme/custom_font="uid://jnysgjielee7"
+
 [input]
 
 Interact={
