@@ -28,6 +28,7 @@ animations = [{
 size = Vector2(44, 44)
 
 [node name="Player" type="CharacterBody2D" unique_id=555660452]
+z_index = 2
 collision_layer = 2
 collision_mask = 5
 motion_mode = 1
@@ -54,4 +55,5 @@ offset_left = -58.0
 offset_top = -59.0
 offset_right = 65.0
 offset_bottom = -43.0
+theme_override_colors/font_color = Color(0.49019608, 0.24313726, 0.14117648, 1)
 text = "press e to fish!"
