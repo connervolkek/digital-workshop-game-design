@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cxgv3qmhutft4" path="res://Scenes/Player.tscn" id="2_kln2b"]
 [ext_resource type="PackedScene" uid="uid://xnwfyupperq3" path="res://Scenes/FishingGame.tscn" id="4_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://bsk01gcvlod1c" path="res://Scenes/CollectionUI.tscn" id="5_pbw6q"]
+[ext_resource type="PackedScene" uid="uid://bp8ss3xuef02s" path="res://Scenes/Fish.tscn" id="6_fish"]
+[ext_resource type="Texture2D" uid="uid://itpsvvg00cv1" path="res://Art/TestImage.png" id="7_fish_picture"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pbw6q"]
 texture = ExtResource("1_rgh2o")
@@ -103,10 +105,24 @@ tile_map_data = PackedByteArray("AADa//L/AAAAAAMAAADa//P/AAAAAAMAAADa//T/AAAAAAM
 tile_set = SubResource("TileSet_2m5a4")
 
 [node name="Player" parent="." unique_id=555660452 instance=ExtResource("2_kln2b")]
+position = Vector2(-2, -80)
+
+[node name="Fishes" type="Node" parent="." unique_id=1248021191]
+
+[node name="COOL fish" parent="Fishes" unique_id=1974065822 instance=ExtResource("6_fish")]
+fish_name = "COOL fish"
+
+[node name="unCOOL fish" parent="Fishes" unique_id=1247094525 instance=ExtResource("6_fish")]
+texture_normal = ExtResource("7_fish_picture")
+fish_name = "unCOOL fish"
+clicks_required = 15
+time_limit = 6.0
+hop_interval = 0.4
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=891895647]
 
 [node name="CollectionUI" parent="CanvasLayer" unique_id=1401526301 instance=ExtResource("5_pbw6q")]
 
-[node name="FishingGame" parent="CanvasLayer" unique_id=477631103 instance=ExtResource("4_rgh2o")]
+[node name="FishingGame" parent="CanvasLayer" unique_id=477631103 node_paths=PackedStringArray("fishes") instance=ExtResource("4_rgh2o")]
 visible = false
+fishes = NodePath("../../Fishes")

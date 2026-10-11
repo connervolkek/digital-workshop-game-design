@@ -2,6 +2,9 @@ extends Control
 
 const Fish = preload("res://Scripts/Fish.gd")
 
+# Assign Main's Fishes node in the Inspector.
+@export var fishes: Node
+
 var clicks: int = 0
 var fish_caught: int = 0
 var round_active: bool = false
@@ -33,10 +36,25 @@ func open() -> void:
 
 
 func start_round():
+	round_active = false
+	round_timer.stop()
 	if fish != null:
 		fish.stop()
+		fish_bounds.remove_child(fish)
+		fish.queue_free()
+		fish = null
 	clicks = 0
-	fish = fish_bounds.get_children().pick_random()
+
+	var available_fish: Array[Node] = []
+	if fishes != null:
+		for child in fishes.get_children():
+			if child is Fish:
+				available_fish.append(child)
+
+	# Keep the editable original in Main and play with a copy.
+	fish = available_fish.pick_random().duplicate() as Fish
+	fish_bounds.add_child(fish)
+	fish.position = Vector2.ZERO
 	round_active = true
 
 	clicks_label.text = "Clicks: 0 / " + str(fish.clicks_required)
