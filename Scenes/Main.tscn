@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bsk01gcvlod1c" path="res://Scenes/CollectionUI.tscn" id="5_pbw6q"]
 [ext_resource type="PackedScene" uid="uid://bp8ss3xuef02s" path="res://Scenes/Fish.tscn" id="6_fish"]
 [ext_resource type="Texture2D" uid="uid://itpsvvg00cv1" path="res://Art/TestImage.png" id="7_fish_picture"]
+[ext_resource type="Texture2D" uid="uid://cxfin5xv0rt0q" path="res://Art/move_and_interact.png" id="7_jw32o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pbw6q"]
 texture = ExtResource("1_rgh2o")
@@ -126,3 +127,12 @@ hop_interval = 0.4
 [node name="FishingGame" parent="CanvasLayer" unique_id=477631103 node_paths=PackedStringArray("fishes") instance=ExtResource("4_rgh2o")]
 visible = false
 fishes = NodePath("../../Fishes")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=150764339]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer" unique_id=1470939880]
+custom_minimum_size = Vector2(216, 72)
+layout_mode = 2
+texture = ExtResource("7_jw32o")

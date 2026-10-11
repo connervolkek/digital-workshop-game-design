@@ -12,6 +12,8 @@ func _physics_process(_delta: float) -> void:
 		handle_interaction()
 
 
+
+
 func handle_movement():
 	velocity = Vector2.ZERO
 	if Input.is_action_pressed("Right"):
@@ -31,6 +33,10 @@ func handle_animation():
 		return
 	var facing_direction = move_direction.normalized()
 	$FishingRay.target_position = facing_direction * 40
+	if $FishingRay.is_colliding():
+		$"fishing label".visible = true
+	else:
+		$"fishing label".visible = false
 	#animation logic here
 
 func _ready() -> void:
