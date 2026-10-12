@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://twq6m3w8v0te"]
+
+[ext_resource type="Theme" uid="uid://mvjpfb540vfs" path="res://Art/GameTheme.tres" id="1_yjdjl"]
+[ext_resource type="Script" uid="uid://bwlj0yl3b6qd7" path="res://Troubleshooting Folder/finished scripts/FinishedFishingGame.gd" id="2_0tpal"]
+[ext_resource type="Texture2D" uid="uid://bbut17ryboqwr" path="res://Art/woodframe.png" id="3_13kui"]
+[ext_resource type="Texture2D" uid="uid://cs38h0ypkoqk1" path="res://Art/fishingbg.png" id="4_w60i0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n55jk"]
+bg_color = Color(0.8784314, 0.22352941, 0.29803923, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y25gk"]
+bg_color = Color(0.56078434, 0.24313726, 0.3372549, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ew6px"]
+bg_color = Color(0.18431373, 0.6, 0.6, 1)
+
+[node name="FishingGame" type="Control" unique_id=477631103]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_yjdjl")
+script = ExtResource("2_0tpal")
+
+[node name="OuterPanel" type="PanelContainer" parent="." unique_id=900062610]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.5
+offset_top = -162.5
+offset_right = 212.5
+offset_bottom = 162.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="OuterPanel" unique_id=787473748]
+layout_mode = 2
+texture = ExtResource("3_13kui")
+region_rect = Rect2(0, 0, 72, 72)
+patch_margin_left = 9
+patch_margin_top = 9
+patch_margin_right = 9
+patch_margin_bottom = 9
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="OuterPanel" unique_id=852197386]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OuterPanel/MarginContainer" unique_id=1568369655]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="HBoxContainer" parent="OuterPanel/MarginContainer/VBoxContainer" unique_id=530610128]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="TimeLabel" type="Label" parent="OuterPanel/MarginContainer/VBoxContainer/Header" unique_id=2038492262]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Time: 5.0 s"
+
+[node name="ClicksLabel" type="Label" parent="OuterPanel/MarginContainer/VBoxContainer/Header" unique_id=2032912649]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Clicks: 0 / 5"
+
+[node name="CaughtLabel" type="Label" parent="OuterPanel/MarginContainer/VBoxContainer/Header" unique_id=1647206337]
+layout_mode = 2
+text = "Caught: 0"
+
+[node name="CloseButton" type="Button" parent="OuterPanel/MarginContainer/VBoxContainer/Header" unique_id=957278439]
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_n55jk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_y25gk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y25gk")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_n55jk")
+text = "X"
+
+[node name="FishingArea" type="PanelContainer" parent="OuterPanel/MarginContainer/VBoxContainer" unique_id=354490212]
+custom_minimum_size = Vector2(375, 230)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ew6px")
+
+[node name="TextureRect" type="TextureRect" parent="OuterPanel/MarginContainer/VBoxContainer/FishingArea" unique_id=675604880]
+layout_mode = 2
+texture = ExtResource("4_w60i0")
+
+[node name="FishBounds" type="Control" parent="OuterPanel/MarginContainer/VBoxContainer/FishingArea" unique_id=2122585587]
+clip_contents = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Footer" type="HBoxContainer" parent="OuterPanel/MarginContainer/VBoxContainer" unique_id=1257403813]
+custom_minimum_size = Vector2(0, 31)
+layout_mode = 2
+
+[node name="ResultLabel" type="Label" parent="OuterPanel/MarginContainer/VBoxContainer/Footer" unique_id=1650463773]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Click the hopping fish!"
+horizontal_alignment = 1
+
+[node name="RoundTimer" type="Timer" parent="." unique_id=1244881548]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="pressed" from="OuterPanel/MarginContainer/VBoxContainer/Header/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="timeout" from="RoundTimer" to="." method="_on_round_timer_timeout"]

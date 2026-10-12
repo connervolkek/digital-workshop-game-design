@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://bwt7dwyr8kylr"]
+
+[ext_resource type="Theme" uid="uid://mvjpfb540vfs" path="res://Art/GameTheme.tres" id="1_dyyh7"]
+[ext_resource type="Script" uid="uid://cnaimq1dbj5k6" path="res://Troubleshooting Folder/finished scripts/FinishedCollectionUI.gd" id="2_jxbcv"]
+[ext_resource type="Texture2D" uid="uid://do6isgpkfwql7" path="res://Art/collection.png" id="4_567go"]
+[ext_resource type="Texture2D" uid="uid://bbut17ryboqwr" path="res://Art/woodframe.png" id="5_682n8"]
+[ext_resource type="AudioStream" uid="uid://vw1x34gcepl8" path="res://Sounds/pageturn.wav" id="6_gao5t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t3wo7"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_t3wo7"]
+random_pitch = 1.0615458
+streams_count = 1
+stream_0/stream = ExtResource("6_gao5t")
+
+[node name="CollectionUI" type="Control" unique_id=1401526301]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_dyyh7")
+script = ExtResource("2_jxbcv")
+
+[node name="CollectionButton" type="Button" parent="." unique_id=672176762]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -111.0
+offset_top = 8.0
+offset_right = -11.0
+offset_bottom = 128.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.49019608, 0.24313726, 0.14117648, 1)
+theme_override_colors/font_focus_color = Color(0.49019608, 0.24313726, 0.14117648, 1)
+theme_override_colors/font_pressed_color = Color(0.49019608, 0.24313726, 0.14117648, 1)
+theme_override_colors/font_hover_color = Color(0.3583605, 0.16993287, 0.09201824, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.49019608, 0.24313726, 0.14117648, 1)
+theme_override_colors/icon_hover_color = Color(0.737193, 0.7371929, 0.7371929, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t3wo7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_t3wo7")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_t3wo7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_t3wo7")
+text = "Collection"
+icon = ExtResource("4_567go")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=590749025]
+visible = false
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="PanelContainer" unique_id=207770842]
+layout_mode = 2
+texture = ExtResource("5_682n8")
+region_rect = Rect2(0, 0, 72, 72)
+patch_margin_left = 9
+patch_margin_top = 9
+patch_margin_right = 9
+patch_margin_bottom = 9
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=29272571]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1262120549]
+layout_mode = 2
+
+[node name="CollectionLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1193512858]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Collection"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=358747386]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1834149615]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 4
+
+[node name="CloseButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1633065015]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Close"
+
+[node name="PageTurn" type="AudioStreamPlayer" parent="." unique_id=806265492]
+stream = SubResource("AudioStreamRandomizer_t3wo7")
+volume_db = -7.003
+
+[connection signal="pressed" from="CollectionButton" to="." method="_on_collection_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

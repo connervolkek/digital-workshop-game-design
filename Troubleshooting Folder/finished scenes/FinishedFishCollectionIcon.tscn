@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://b0p81w6mq8kuj"]
+
+[ext_resource type="Texture2D" uid="uid://cjf64ps0ig6pj" path="res://Art/fishcollectionbg.png" id="1_f3gp1"]
+[ext_resource type="Script" uid="uid://bn8vpw424gd6m" path="res://Troubleshooting Folder/finished scripts/FinishedFishCollectionIcon.gd" id="2_g0bfh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hpy13"]
+texture = ExtResource("1_f3gp1")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="FishCollectionIcon" type="PanelContainer" unique_id=1803964695]
+custom_minimum_size = Vector2(64, 64)
+theme_override_styles/panel = SubResource("StyleBoxTexture_hpy13")
+script = ExtResource("2_g0bfh")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2104622573]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=409836340]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=963902570]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=722618076]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Goldfish"
+horizontal_alignment = 1

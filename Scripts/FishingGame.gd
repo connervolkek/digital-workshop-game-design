@@ -1,7 +1,7 @@
 extends Control
 
 const Fish = preload("res://Scripts/Fish.gd")
-
+const FinishedFish = preload("res://Troubleshooting Folder/finished scripts/FinishedFish.gd")
 # Assign Main's Fishes node in the Inspector.
 @export var fishes: Node
 
@@ -9,7 +9,7 @@ var clicks: int = 0
 var fish_caught: int = 0
 var round_active: bool = false
 
-var fish: Fish
+var fish
 
 @onready var fish_bounds: Control = $OuterPanel/MarginContainer/VBoxContainer/FishingArea/FishBounds
 @onready var round_timer: Timer = $RoundTimer
@@ -43,16 +43,20 @@ func start_round():
 		fish_bounds.remove_child(fish)
 		fish.queue_free()
 		fish = null
+	
+	
 	clicks = 0
-
 	var available_fish: Array[Node] = []
 	if fishes != null:
 		for child in fishes.get_children():
-			if child is Fish:
+			if child is Fish or child is FinishedFish:
 				available_fish.append(child)
 
-	# Keep the editable original in Main and play with a copy.
-	fish = available_fish.pick_random().duplicate() as Fish
+	if available_fish.is_empty():
+		result_label.text = "No fish found! Ask a helper."
+		return
+
+	fish = available_fish.pick_random().duplicate()
 	fish_bounds.add_child(fish)
 	fish.position = Vector2.ZERO
 	round_active = true
