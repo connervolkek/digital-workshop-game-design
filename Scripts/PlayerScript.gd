@@ -2,7 +2,10 @@ extends CharacterBody2D
 
 var can_move = true
 var can_interact = true
-var speed = 200
+#Add a speed variable here!
+
+
+
 
 func _physics_process(_delta: float) -> void:
 	if can_move:
@@ -13,18 +16,17 @@ func _physics_process(_delta: float) -> void:
 
 
 
-
+## Replace the function below with the code snippet in the slides!
 func handle_movement():
-	velocity = Vector2.ZERO
-	if Input.is_action_pressed("Right"):
-		velocity.x += speed
-	if Input.is_action_pressed("Left"):
-		velocity.x -= speed
-	if Input.is_action_pressed("Down"):
-		velocity.y += speed
-	if Input.is_action_pressed("Up"):
-		velocity.y -= speed
-	move_and_slide()
+	pass
+
+
+
+
+
+
+
+
 
 
 func _ready() -> void:
