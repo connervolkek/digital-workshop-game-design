@@ -2,14 +2,13 @@ extends Control
 
 const Fish = preload("res://Scripts/Fish.gd")
 const FinishedFish = preload("res://Troubleshooting Folder/finished scripts/FinishedFish.gd")
-# Assign Main's Fishes node in the Inspector.
 @export var fishes: Node
 
 var clicks: int = 0
 var fish_caught: int = 0
 var round_active: bool = false
-
 var fish
+var streak = 0
 
 @onready var fish_bounds: Control = $OuterPanel/MarginContainer/VBoxContainer/FishingArea/FishBounds
 @onready var round_timer: Timer = $RoundTimer
@@ -83,13 +82,16 @@ func finish_round(won: bool) -> void:
 	round_timer.stop()
 	fish.stop()
 	if won:
+		streak += 1
 		fish_caught += 1
 		result_label.text = "You caught a fish!"
 		Global.fish_caught.emit(fish.fish_name, fish.texture_normal)
 	else:
+		streak = 0
 		result_label.text = "The fish got away!"
 		time_label.text = "Time: 0.0 s"
-	caught_label.text = "Caught: " + str(fish_caught)
+	caught_label.text = "Caught: " + str(fish_caught) + " Streak: " + str(streak)
+	print(streak)
 
 
 func close() -> void:

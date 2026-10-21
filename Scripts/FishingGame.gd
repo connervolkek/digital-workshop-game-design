@@ -2,7 +2,6 @@ extends Control
 
 const Fish = preload("res://Scripts/Fish.gd")
 const FinishedFish = preload("res://Troubleshooting Folder/finished scripts/FinishedFish.gd")
-# Assign Main's Fishes node in the Inspector.
 @export var fishes: Node
 
 var clicks: int = 0
