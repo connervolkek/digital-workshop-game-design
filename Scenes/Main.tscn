@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d36il4nq284rg" path="res://Art/Tileset.png" id="1_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://cxgv3qmhutft4" path="res://Scenes/Player.tscn" id="2_kln2b"]
+[ext_resource type="Texture2D" uid="uid://d1sluurh3nt73" path="res://Art/fish 2.png" id="4_50glp"]
 [ext_resource type="PackedScene" uid="uid://xnwfyupperq3" path="res://Scenes/FishingGame.tscn" id="4_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://bsk01gcvlod1c" path="res://Scenes/CollectionUI.tscn" id="5_pbw6q"]
 [ext_resource type="PackedScene" uid="uid://bp8ss3xuef02s" path="res://Scenes/Fish.tscn" id="6_fish"]
@@ -142,6 +143,7 @@ position = Vector2(-2, -80)
 [node name="Fishes" type="Node" parent="." unique_id=1248021191]
 
 [node name="COOL fish" parent="Fishes" unique_id=1974065822 instance=ExtResource("6_fish")]
+texture_normal = ExtResource("4_50glp")
 fish_name = "COOL fish"
 
 [node name="unCOOL fish" parent="Fishes" unique_id=1247094525 instance=ExtResource("6_fish")]
